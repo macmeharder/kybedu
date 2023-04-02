@@ -11,14 +11,17 @@
   "dependencies": {
     "atomic-router": "^0.8.0",
     "atomic-router-react": "^0.8.1",
+    "clsx": "^1.2.1",
     "compose-function": "^3.0.3",
     "effector": "^22.7.0",
     "effector-react": "^22.5.1",
+    "history": "^5.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@feature-sliced/eslint-config": "^0.1.0-beta.6",
+    "@tailwindcss/forms": "^0.5.3",
     "@types/compose-function": "^0.0.30",
     "@types/node": "^18.14.6",
     "@types/react": "^18.0.27",
@@ -34,7 +37,9 @@
     "eslint-plugin-react": "^7.32.2",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",
+    "prettier-plugin-tailwindcss": "^0.2.5",
     "tailwindcss": "^3.2.7",
+    "tailwindcss-safe-area": "^0.2.2",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
     "vite-plugin-pwa": "^0.14.5"
