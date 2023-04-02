@@ -36,7 +36,7 @@ export function LoginPage() {
             <Input
               label="Phone number"
               type="tel"
-              defaultValue="+7 5"
+              defaultValue="+7 7"
               register={register("phone", loginSchema.phone)}
             />
             <PasswordInput label="Password" type="password" />
