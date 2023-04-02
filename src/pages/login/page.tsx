@@ -17,11 +17,6 @@ export function LoginPage() {
     formState: { errors },
   } = useForm<ILoginForm>();
 
-  function handleFocusPhoneInput(event: any) {
-    if (event.currentTarget.value.length === 0)
-      event.currentTarget.value = "+7 7";
-  }
-
   return (
     <div className="mi flex flex-col justify-between px-4 h-screen-safe">
       <HeadNavigation />
@@ -36,7 +31,7 @@ export function LoginPage() {
             <Input
               label="Phone number"
               type="tel"
-              defaultValue="+7 7"
+              defaultValue={loginSchema.phone.code}
               register={register("phone", loginSchema.phone)}
             />
             <PasswordInput label="Password" type="password" />
