@@ -8,9 +8,16 @@ import {
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
+  register: any;
 }
 
-export function PasswordInput({ label, className, type, ...props }: Props) {
+export function PasswordInput({
+  label,
+  className,
+  type,
+  register,
+  ...props
+}: Props) {
   const [passwordType, changePasswordType] = useUnit([
     $passwordType,
     changePasswordTypeEv,
@@ -29,6 +36,7 @@ export function PasswordInput({ label, className, type, ...props }: Props) {
           )}
           type={passwordType}
           {...props}
+          {...register}
         />
         <label className="absolute top-1/2 right-3 -translate-y-1/2">
           <input
