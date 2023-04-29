@@ -3,12 +3,10 @@ import { Link } from "atomic-router-react";
 import { routes } from "~/shared/routes";
 import { Button } from "~/shared/ui/button";
 import { HeadNavigation } from "~/shared/ui/head-navigation";
-import { Input } from "~/shared/ui/input";
 import { Logotype } from "~/shared/ui/logotype";
 import { useForm } from "react-hook-form";
-import { registerSchema } from "~/shared/schemas/shemas";
 
-export function RegisterPage() {
+export function RegisterPageThree() {
   const {
     register,
     handleSubmit,
@@ -28,26 +26,13 @@ export function RegisterPage() {
           })}
         >
           <div className="flex flex-col gap-4">
-            <Input
-              label="Имя"
-              type="text"
-              placeholder="Введите ваше имя"
-              register={register("firstname", registerSchema.firstname)}
-            />
-
-            <Input
-              label="Фамилия"
-              type="text"
-              placeholder="Введите вашу фамилию"
-              register={register("lastname", registerSchema.lastname)}
-            />
-
-            <Input
-              label="E-mail"
-              type="email"
-              placeholder="Введите вашу почту"
-              register={register("email", registerSchema.email)}
-            />
+            <p className="text-sm">
+              Мы отправили код на номер{" "}
+              <span className="whitespace-nowrap text-main-purple">
+                +7 701 123 1234
+              </span>
+              . Введите код для активации аккаунта.
+            </p>
           </div>
         </form>
       </div>
@@ -55,11 +40,12 @@ export function RegisterPage() {
         <Button form="register-form" disabled={!isValid}>
           Далее
         </Button>
-        <p className="w-full text-center mb-safe">
-          Уже есть аккаунт?{" "}
+        <p className="w-full text-center text-sm mb-safe">
+          Не получили sms?{" "}
           <Link to={routes.login} className="text-main-purple">
-            Войдите.
+            Отправить код повторно
           </Link>
+          .
         </p>
       </div>
     </div>

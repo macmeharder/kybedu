@@ -15,4 +15,5 @@ export const registerSchema = {
   firstname: firstnameField,
   lastname: lastnameField,
   email: emailField,
+  password: passwordField,
 };

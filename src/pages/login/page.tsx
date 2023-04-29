@@ -48,9 +48,9 @@ export function LoginPage() {
           <Button disabled={!isValid}>Войти</Button>
         </form>
       </div>
-      <p className="w-full text-center mb-safe">
+      <p className="w-full text-center text-sm mb-safe">
         Все еще нет аккаунта?{" "}
-        <Link to={routes.register} className="text-main-purple">
+        <Link to={routes.register_1} className="text-main-purple">
           Зарегистрируйтесь.
         </Link>
       </p>
