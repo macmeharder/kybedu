@@ -36,7 +36,6 @@ sample({
       ),
       center: <></>,
       right: <></>,
-      className: "bg-none",
     };
   },
   target: changeHeadNavigationEv,

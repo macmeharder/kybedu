@@ -15,7 +15,7 @@ export function SectionItem({
   to: any;
 }) {
   return (
-    <Link to={to} className="relative flex h-28 w-28 flex-col">
+    <Link to={to} className="relative flex h-28 w-28 select-none flex-col">
       <SectionBorder
         className={clsx(lesson ? "text-ce-yellow" : "text-ce-gray-2")}
       />

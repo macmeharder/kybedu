@@ -17,6 +17,7 @@ module.exports = {
           gray: {
             DEFAULT: "var(--ce-gray)",
             2: "var(--ce-gray-2)",
+            3: "var(--ce-gray-3)",
           },
           yellow: "var(--ce-yellow)",
         },

@@ -11,8 +11,6 @@ sample({
     const value = 50;
 
     return {
-      show: true,
-      className: "bg-main-purple text-white",
       left: (
         <div className="w-full">
           <h4>Прогресс</h4>

@@ -9,10 +9,6 @@ body,
   @apply h-full;
 }
 
-#root {
-  @apply overflow-y-auto;
-}
-
 a {
   -webkit-touch-callout: none;
 }
