@@ -3,11 +3,10 @@ import {
   firstnameField,
   lastnameField,
   passwordField,
-  phoneField,
 } from "~/shared/schemas/fields";
 
 export const loginSchema = {
-  phone: phoneField,
+  email: emailField,
   password: passwordField,
 };
 

@@ -17,24 +17,24 @@ export function LoginPage() {
   } = useForm();
 
   return (
-    <div className="mi flex flex-col justify-between px-4 h-screen-safe">
+    <div className="flex flex-col justify-between px-4 h-screen-safe">
       <HeadNavigation />
       <div className="flex flex-col items-center gap-14">
         <Logotype />
         <form
           action=""
-          className="flex w-full flex-col gap-10"
+          className="flex w-full max-w-md flex-col items-center gap-10"
           onSubmit={handleSubmit(function () {})}
           onChange={function () {
             console.log(isValid, errors);
           }}
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex w-full flex-col gap-4">
             <Input
-              label="Phone number"
-              type="tel"
-              defaultValue={loginSchema.phone.code}
-              register={register("phone", loginSchema.phone)}
+              label="E-mail"
+              type="email"
+              placeholder="Введите вашу почту"
+              register={register("email", loginSchema.email)}
             />
             <PasswordInput
               label="Password"

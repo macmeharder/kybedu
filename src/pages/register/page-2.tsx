@@ -25,16 +25,16 @@ export function RegisterPageTwo() {
   }
 
   return (
-    <div className="mi flex flex-col justify-between px-4 h-screen-safe">
+    <div className="flex flex-col items-center justify-between px-4 h-screen-safe">
       <HeadNavigation />
-      <div className="flex flex-col items-center gap-14">
+      <div className="flex w-full flex-col items-center gap-14">
         <Logotype />
         <form
           id="register-form"
-          className="flex w-full flex-col"
+          className="flex w-full max-w-md flex-col items-center"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex w-full flex-col gap-4">
             <Input
               label="E-mail"
               type="email"
@@ -48,7 +48,7 @@ export function RegisterPageTwo() {
           </div>
         </form>
       </div>
-      <div className="flex flex-col gap-6">
+      <div className="flex w-full max-w-md flex-col items-center gap-6">
         <Button form="register-form" disabled={!isValid}>
           Далее
         </Button>
