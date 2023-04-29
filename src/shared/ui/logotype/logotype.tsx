@@ -1,3 +1,9 @@
-export function Logotype() {
-  return <h1 className="text-4xl font-semibold text-main-purple">CybEdu</h1>;
+import clsx from "clsx";
+
+export function Logotype({ className = "" }: { className?: string }) {
+  return (
+    <h1 className={clsx("text-4xl font-semibold text-main-purple", className)}>
+      CybEdu
+    </h1>
+  );
 }

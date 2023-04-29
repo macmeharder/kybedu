@@ -1,4 +1,4 @@
-import { createRoute } from "atomic-router";
+import { createRoute, createRouterControls } from "atomic-router";
 
 export const routes = {
   login: createRoute(),
@@ -6,3 +6,5 @@ export const routes = {
   register_2: createRoute(),
   register_3: createRoute(),
 };
+
+export const controls = createRouterControls();

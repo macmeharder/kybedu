@@ -6,5 +6,5 @@ html {
 html,
 body,
 #root {
-  height: -webkit-fill-available;
+  @apply h-full
 }

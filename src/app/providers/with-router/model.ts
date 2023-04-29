@@ -5,9 +5,11 @@ import { createBrowserHistory } from "history";
 import { routes } from "~/shared/routes";
 
 import { routesMap } from "~/pages";
+import { controls } from "~/shared/routes/routes";
 
 export const router = createHistoryRouter({
   routes: routesMap,
+  controls,
 });
 
 const history = createBrowserHistory();
