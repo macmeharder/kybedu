@@ -5,7 +5,7 @@ import { Button } from "~/shared/ui/button";
 import { HeadNavigation } from "~/shared/ui/head-navigation";
 import { Logotype } from "~/shared/ui/logotype";
 import { useForm } from "react-hook-form";
-import { VerificationCode } from "~/shared/ui/verification-code/verification-code";
+import { VerificationCode } from "~/shared/ui/verification-code";
 
 export function RegisterPageThree() {
   const {
