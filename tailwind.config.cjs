@@ -5,13 +5,20 @@ module.exports = {
     extend: {
       colors: {
         main: {
-          purple: "var(--main-purple)",
+          purple: {
+            DEFAULT: "var(--main-purple)",
+            dark: "var(--main-purple-dark)",
+          },
         },
         background: {
           gray: "var(--background-gray)",
         },
         ce: {
-          gray: 'var(--ce-gray)'
+          gray: {
+            DEFAULT: "var(--ce-gray)",
+            2: "var(--ce-gray-2)",
+          },
+          yellow: "var(--ce-yellow)",
         },
         blue: {
           gray: "var(--blue-gray)",

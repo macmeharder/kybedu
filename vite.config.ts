@@ -3,6 +3,7 @@ import * as path from "path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
+import viteSvgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
 
   plugins: [
     react(),
+    viteSvgr(),
     VitePWA({
       registerType: "autoUpdate",
       workbox: {
@@ -35,7 +37,7 @@ export default defineConfig({
         prefer_related_applications: true,
         icons: [
           {
-            src: "/icons/icon-512x512.png",
+            src: "/images/icon-512x512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "maskable any",

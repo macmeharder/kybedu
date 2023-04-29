@@ -1,6 +1,7 @@
 import clsx from "clsx";
-import { InputHTMLAttributes } from "react";
 import { useUnit } from "effector-react";
+import { InputHTMLAttributes } from "react";
+
 import {
   $passwordType,
   changePasswordTypeEv,
@@ -45,12 +46,12 @@ export function PasswordInput({
             onChange={changePasswordType}
           />
           <img
-            src="/icons/eye.svg"
+            src="/images/eye.svg"
             className="peer-checked:hidden"
             alt="show password"
           />
           <img
-            src="/icons/eye-off.svg"
+            src="/images/eye-off.svg"
             className="hidden peer-checked:block"
             alt="hide password"
           />

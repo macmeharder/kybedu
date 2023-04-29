@@ -1,10 +1,18 @@
 html {
   font-family: "Inter", sans-serif;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 html,
 body,
 #root {
-  @apply h-full
+  @apply h-full;
+}
+
+#root {
+  @apply overflow-y-auto;
+}
+
+a {
+  -webkit-touch-callout: none;
 }

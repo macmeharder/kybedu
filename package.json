@@ -18,7 +18,8 @@
     "history": "^5.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.43.9"
+    "react-hook-form": "^7.43.9",
+    "vite-plugin-svgr": "^2.4.0"
   },
   "devDependencies": {
     "@feature-sliced/eslint-config": "^0.1.0-beta.6",

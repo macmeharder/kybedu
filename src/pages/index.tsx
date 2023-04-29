@@ -3,6 +3,7 @@ import { Route } from "atomic-router-react";
 import { routes } from "~/shared/routes";
 import { HeadNavigation } from "~/shared/ui/head-navigation";
 
+import { HomePage } from "~/pages/home";
 import { LoginPage } from "~/pages/login";
 import {
   RegisterPageOne,
@@ -19,6 +20,8 @@ export function Pages() {
         <Route route={routes.register_1} view={RegisterPageOne} />
         <Route route={routes.register_2} view={RegisterPageTwo} />
         <Route route={routes.register_3} view={RegisterPageThree} />
+
+        <Route route={routes.home} view={HomePage} />
       </div>
     </div>
   );
@@ -29,4 +32,6 @@ export const routesMap = [
   { path: "/register-1", route: routes.register_1 },
   { path: "/register-2", route: routes.register_2 },
   { path: "/register-3", route: routes.register_3 },
+
+  { path: "/home", route: routes.home },
 ];

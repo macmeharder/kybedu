@@ -1,6 +1,9 @@
 :root {
   --main-purple: #7879f1;
+  --main-purple-dark: #1F208B;
   --background-gray: #f7f7f7;
   --blue-gray: #96a6c2;
-  --ce-gray:#F7F7F7
+  --ce-gray:#F7F7F7;
+  --ce-gray-2:#EAEAEA;
+  --ce-yellow:#FFC800
 }

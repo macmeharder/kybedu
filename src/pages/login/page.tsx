@@ -1,4 +1,5 @@
 import { Link } from "atomic-router-react";
+import { useUnit } from "effector-react";
 import { useForm } from "react-hook-form";
 
 import { routes } from "~/shared/routes";
@@ -7,6 +8,8 @@ import { Button } from "~/shared/ui/button";
 import { Input } from "~/shared/ui/input";
 import { Logotype } from "~/shared/ui/logotype";
 import { PasswordInput } from "~/shared/ui/password-input";
+
+import { successLoginEv } from "~/pages/login/model";
 
 export function LoginPage() {
   return (
@@ -18,6 +21,7 @@ export function LoginPage() {
 }
 
 function Form() {
+  const [successLogin] = useUnit([successLoginEv]);
   const {
     register,
     handleSubmit,
@@ -27,7 +31,7 @@ function Form() {
   return (
     <form
       className="flex w-full max-w-md flex-1 flex-col items-center gap-10"
-      onSubmit={handleSubmit(function () {})}
+      onSubmit={handleSubmit(successLogin)}
     >
       <div className="flex w-full flex-col gap-4">
         <Input

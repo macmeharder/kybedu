@@ -63,11 +63,31 @@ function handleKeyDown(e: any) {
   }
 }
 
-export function VerificationCode({ length }: { length: number }) {
+export function VerificationCode({
+  length,
+  onSubmit,
+}: {
+  length: number;
+  onSubmit: (code: string) => void;
+}) {
+  function handleChange(e: any) {
+    const inputs = Array.from(e.currentTarget.elements);
+    const haveEmpty = inputs.some(function (input: any) {
+      return input.value === "";
+    });
+
+    if (!haveEmpty) {
+      const code = inputs.reduce(function (accumulator: string, input: any) {
+        return accumulator + input.value;
+      }, "");
+      onSubmit(code);
+    }
+  }
   return (
     <form
       onInput={handleInput}
       onPaste={handlePaste}
+      onChange={handleChange}
       className="flex items-center gap-9"
     >
       {new Array(length).fill(null).map(function (_, index) {

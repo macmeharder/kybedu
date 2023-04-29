@@ -1,8 +1,11 @@
 import { Link } from "atomic-router-react";
+import { useUnit } from "effector-react";
 
 import { routes } from "~/shared/routes";
 import { Logotype } from "~/shared/ui/logotype";
 import { VerificationCode } from "~/shared/ui/verification-code";
+
+import { successThirdRegistrationEv } from "~/pages/register/model";
 
 export function RegisterPageThree() {
   return (
@@ -14,6 +17,8 @@ export function RegisterPageThree() {
 }
 
 function Form() {
+  const [successThirdRegistration] = useUnit([successThirdRegistrationEv]);
+
   return (
     <div className="flex flex-1 flex-col items-center gap-7">
       <div className="flex flex-col gap-4">
@@ -26,7 +31,7 @@ function Form() {
           Введите код для активации аккаунта.
         </p>
       </div>
-      <VerificationCode length={4} />
+      <VerificationCode length={4} onSubmit={successThirdRegistration} />
       <Bottom />
     </div>
   );
