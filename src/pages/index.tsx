@@ -9,12 +9,15 @@ import { Navigation } from "~/shared/ui/navigation";
 
 import { HomePage } from "~/pages/home";
 import { LoginPage } from "~/pages/login";
-import { ViewerLayoutGate } from "~/pages/model";
+import { GuestLayoutGate, ViewerLayoutGate } from "~/pages/model";
 import {
   RegisterPageOne,
   RegisterPageThree,
   RegisterPageTwo,
 } from "~/pages/register";
+import { SectionPage } from "~/pages/section";
+import { SectionLessonPage } from "~/pages/section-lesson";
+import { SectionTestPage } from "~/pages/section-test";
 
 export function Pages() {
   return (
@@ -27,6 +30,17 @@ export function Pages() {
 const RoutesView = createRoutesView({
   routes: [
     { route: routes.home, view: HomePage, layout: ViewerLayout },
+    { route: routes.section, view: SectionPage, layout: ViewerLayout },
+    {
+      route: routes.section_lesson,
+      view: SectionLessonPage,
+      layout: ViewerLayout,
+    },
+    {
+      route: routes.section_test,
+      view: SectionTestPage,
+      layout: ViewerLayout,
+    },
 
     { route: routes.login, view: LoginPage, layout: GuestLayout },
     { route: routes.register_1, view: RegisterPageOne, layout: GuestLayout },
@@ -36,6 +50,7 @@ const RoutesView = createRoutesView({
 });
 
 function GuestLayout({ children }: { children: ReactNode }) {
+  useGate(GuestLayoutGate);
   return (
     <>
       <Helmet>
@@ -67,4 +82,7 @@ export const routesMap = [
   { path: "/register-3", route: routes.register_3 },
 
   { path: "/home", route: routes.home },
+  { path: "/section/:id", route: routes.section },
+  { path: "/section/:id/lesson", route: routes.section_lesson },
+  { path: "/section/:id/test", route: routes.section_test },
 ];

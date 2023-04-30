@@ -8,7 +8,7 @@ export function HeadNavigation() {
   return (
     <nav
       className={clsx(
-        "flex h-[72px] w-full items-center justify-between p-4 pt-safe",
+        "flex h-[72px] w-full items-center justify-between px-4 pt-safe",
         { "bg-main-purple text-white": layout === "viewer" },
         { "text-gray-3 bg-white": layout !== "viewer" }
       )}

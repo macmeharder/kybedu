@@ -23,6 +23,10 @@ export const changeHeadNavigationEv = createEvent<{
 }>();
 
 sample({
+  source: $headNavigation,
   clock: changeHeadNavigationEv,
+  fn: function (source, payload) {
+    return { layout: source.layout, ...payload };
+  },
   target: $headNavigation,
 });

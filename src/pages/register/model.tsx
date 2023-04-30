@@ -2,7 +2,7 @@ import { redirect } from "atomic-router";
 import { createEvent, sample } from "effector";
 
 import { routes } from "~/shared/routes";
-import { goBackEv } from "~/shared/routes/routes";
+import { BackButton } from "~/shared/ui/back-button";
 import {
   changeHeadNavigationEv,
   initialHeadNavigation,
@@ -29,11 +29,7 @@ sample({
   clock: routes.register_2.opened,
   fn: function () {
     return {
-      left: (
-        <button className="text-main-purple" onClick={goBackEv as any}>
-          Назад
-        </button>
-      ),
+      left: <BackButton className="text-main-purple" />,
       center: <></>,
       right: <></>,
     };
@@ -53,11 +49,7 @@ sample({
   clock: routes.register_3.opened,
   fn: function () {
     return {
-      left: (
-        <button className="text-main-purple" onClick={goBackEv as any}>
-          Назад
-        </button>
-      ),
+      left: <BackButton className="text-main-purple" />,
       center: <></>,
       right: <></>,
       className: "bg-none",

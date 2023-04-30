@@ -3,24 +3,28 @@ import { ReactComponent as SectionBorder } from "/public/images/section-border.s
 import clsx from "clsx";
 import { Link } from "atomic-router-react";
 
+import { routes } from "~/shared/routes";
+
 export function SectionItem({
   lesson,
   test,
-  imgSrc,
-  to,
+  id,
 }: {
   lesson: boolean;
   test: boolean;
-  imgSrc: string;
-  to: any;
+  id: string;
 }) {
   return (
-    <Link to={to} className="relative flex h-28 w-28 select-none flex-col">
+    <Link
+      to={routes.section}
+      params={{ id }}
+      className="relative flex h-28 w-28 select-none flex-col"
+    >
       <SectionBorder
         className={clsx(lesson ? "text-ce-yellow" : "text-ce-gray-2")}
       />
       <div className="absolute top-1/2 left-1/2 -z-10 flex h-16 w-16 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-b-8 border-main-purple-dark bg-main-purple">
-        <img src={imgSrc} className="mt-1" />
+        <img src={`/images/sections/${id}.png`} className="mt-1" />
       </div>
       <SectionBorder
         className={clsx(

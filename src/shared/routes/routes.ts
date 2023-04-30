@@ -8,6 +8,9 @@ export const routes = {
   register_3: createRoute(),
 
   home: createRoute(),
+  section: createRoute<{ id: string }>(),
+  section_lesson: createRoute(),
+  section_test: createRoute(),
 };
 
 export const controls = createRouterControls();
