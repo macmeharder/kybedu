@@ -4,25 +4,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        main: {
-          purple: {
-            DEFAULT: "var(--main-purple)",
-            dark: "var(--main-purple-dark)",
-          },
-        },
-        background: {
-          gray: "var(--background-gray)",
-        },
         ce: {
+          purple: {
+            DEFAULT: "var(--ce-purple)",
+            dark: "var(--ce-purple-dark)",
+          },
           gray: {
             DEFAULT: "var(--ce-gray)",
             2: "var(--ce-gray-2)",
             3: "var(--ce-gray-3)",
           },
           yellow: "var(--ce-yellow)",
-        },
-        blue: {
-          gray: "var(--blue-gray)",
+          blue: {
+            gray: "var(--ce-blue-gray)",
+          },
+          red: {
+            DEFAULT:'var(--ce-red)'
+          }
         },
       },
     },

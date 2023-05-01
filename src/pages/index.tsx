@@ -7,9 +7,19 @@ import { routes } from "~/shared/routes";
 import { HeadNavigation } from "~/shared/ui/head-navigation";
 import { Navigation } from "~/shared/ui/navigation";
 
+import { ChangePasswordPage } from "~/pages/change-password";
+import { DeleteAccountPage } from "~/pages/delete-account";
+import { DeletedPage } from "~/pages/deleted";
+import { ForgotPasswordPage } from "~/pages/forgot-password";
 import { HomePage } from "~/pages/home";
 import { LoginPage } from "~/pages/login";
-import { GuestLayoutGate, ViewerLayoutGate } from "~/pages/model";
+import {
+  GuestLayoutGate,
+  ProfileLayoutGate,
+  ViewerLayoutGate,
+} from "~/pages/model";
+import { ProfilePage } from "~/pages/profile";
+import { ProfileSettingsPage } from "~/pages/profile-settings";
 import {
   RegisterPageOne,
   RegisterPageThree,
@@ -46,6 +56,36 @@ const RoutesView = createRoutesView({
     { route: routes.register_1, view: RegisterPageOne, layout: GuestLayout },
     { route: routes.register_2, view: RegisterPageTwo, layout: GuestLayout },
     { route: routes.register_3, view: RegisterPageThree, layout: GuestLayout },
+    {
+      route: routes.forgot_password,
+      view: ForgotPasswordPage,
+      layout: GuestLayout,
+    },
+
+    {
+      route: routes.profile,
+      view: ProfilePage,
+      layout: ProfileWithoutHeadNavigationLayout,
+    },
+    {
+      route: routes.profile_settings,
+      view: ProfileSettingsPage,
+      layout: ProfileLayout,
+    },
+    {
+      route: routes.change_password,
+      view: ChangePasswordPage,
+      layout: ProfileLayout,
+    },
+    {
+      route: routes.delete_account,
+      view: DeleteAccountPage,
+      layout: ProfileLayout,
+    },
+    {
+      route: routes.deleted,
+      view: DeletedPage,
+    },
   ],
 });
 
@@ -75,14 +115,50 @@ function ViewerLayout({ children }: { children: ReactNode }) {
   );
 }
 
+function ProfileLayout({ children }: { children: ReactNode }) {
+  useGate(ProfileLayoutGate);
+  return (
+    <>
+      <Helmet>
+        <meta name="theme-color" content="#ffffff" />
+      </Helmet>
+      <HeadNavigation />
+      <div className="flex h-full flex-col px-4">{children}</div>
+      <Navigation />
+    </>
+  );
+}
+function ProfileWithoutHeadNavigationLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <>
+      <Helmet>
+        <meta name="theme-color" content="#ffffff" />
+      </Helmet>
+      <div className="flex h-full flex-col px-4">{children}</div>
+      <Navigation />
+    </>
+  );
+}
+
 export const routesMap = [
   { path: "/login", route: routes.login },
   { path: "/register-1", route: routes.register_1 },
   { path: "/register-2", route: routes.register_2 },
   { path: "/register-3", route: routes.register_3 },
+  { path: "/forgot-password", route: routes.forgot_password },
 
   { path: "/home", route: routes.home },
   { path: "/section/:id", route: routes.section },
   { path: "/section/:id/lesson", route: routes.section_lesson },
   { path: "/section/:id/test", route: routes.section_test },
+
+  { path: "/profile", route: routes.profile },
+  { path: "/profile/settings", route: routes.profile_settings },
+  { path: "/profile/change-password", route: routes.change_password },
+  { path: "/profile/delete", route: routes.delete_account },
+  { path: "/profile/deleted", route: routes.deleted },
 ];

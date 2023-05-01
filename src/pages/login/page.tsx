@@ -45,7 +45,7 @@ function Form() {
           type="password"
           register={register("password", loginSchema.password)}
         />
-        <Link to={routes.login} className="self-end text-main-purple">
+        <Link to={routes.forgot_password} className="self-end text-ce-purple">
           Забыли пароль?
         </Link>
       </div>
@@ -59,7 +59,7 @@ function Bottom() {
   return (
     <p className="mt-auto w-full text-center text-sm mb-safe">
       Все еще нет аккаунта?{" "}
-      <Link to={routes.register_1} className="text-main-purple">
+      <Link to={routes.register_1} className="text-ce-purple">
         Зарегистрируйтесь.
       </Link>
     </p>

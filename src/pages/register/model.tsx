@@ -29,7 +29,7 @@ sample({
   clock: routes.register_2.opened,
   fn: function () {
     return {
-      left: <BackButton className="text-main-purple" />,
+      left: <BackButton className="text-ce-purple" />,
       center: <></>,
       right: <></>,
     };
@@ -49,7 +49,7 @@ sample({
   clock: routes.register_3.opened,
   fn: function () {
     return {
-      left: <BackButton className="text-main-purple" />,
+      left: <BackButton className="text-ce-purple" />,
       center: <></>,
       right: <></>,
       className: "bg-none",

@@ -60,7 +60,7 @@ function Bottom() {
   return (
     <p className="w-full text-center text-sm mb-safe">
       Уже есть аккаунт?{" "}
-      <Link to={routes.login} className="text-main-purple">
+      <Link to={routes.login} className="text-ce-purple">
         Войдите.
       </Link>
     </p>

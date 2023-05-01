@@ -26,12 +26,12 @@ export function PasswordInput({
 
   return (
     <label className="flex w-full flex-col gap-1">
-      <span className="text-sm font-medium text-main-purple">{label}</span>
+      <span className="text-sm font-medium text-ce-purple">{label}</span>
       <div className="relative">
         <input
           className={clsx(
             "peer w-full border-none",
-            "bg-background-gray",
+            "bg-ce-gray",
             "rounded-lg py-2.5 pl-3 pr-10",
             className
           )}

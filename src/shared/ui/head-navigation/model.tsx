@@ -1,13 +1,19 @@
 import { createEvent, createStore, sample } from "effector";
 import { ReactNode } from "react";
 
+export enum HEAD_NAVIGATION_COLOR {
+  PURPLE = "purple",
+  WHITE = "white",
+}
+
 interface HeadNavigation {
-  layout?: string;
+  color?: HEAD_NAVIGATION_COLOR;
   left: ReactNode;
   center: ReactNode;
   right: ReactNode;
 }
 export const initialHeadNavigation: HeadNavigation = {
+  color: HEAD_NAVIGATION_COLOR.WHITE,
   left: <></>,
   center: <></>,
   right: <></>,
@@ -15,18 +21,13 @@ export const initialHeadNavigation: HeadNavigation = {
 
 export const $headNavigation = createStore(initialHeadNavigation);
 
-export const changeHeadNavigationEv = createEvent<{
-  layout?: string;
-  left: ReactNode;
-  center: ReactNode;
-  right: ReactNode;
-}>();
+export const changeHeadNavigationEv = createEvent<HeadNavigation>();
 
 sample({
   source: $headNavigation,
   clock: changeHeadNavigationEv,
-  fn: function (source, payload) {
-    return { layout: source.layout, ...payload };
+  fn: function ({ color }, payload) {
+    return { color, ...payload };
   },
   target: $headNavigation,
 });

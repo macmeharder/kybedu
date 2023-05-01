@@ -23,7 +23,7 @@ export function SectionItem({
       <SectionBorder
         className={clsx(lesson ? "text-ce-yellow" : "text-ce-gray-2")}
       />
-      <div className="absolute top-1/2 left-1/2 -z-10 flex h-16 w-16 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-b-8 border-main-purple-dark bg-main-purple">
+      <div className="absolute top-1/2 left-1/2 -z-10 flex h-16 w-16 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full border-b-8 border-ce-purple-dark bg-ce-purple">
         <img src={`/images/sections/${id}.png`} className="mt-1" />
       </div>
       <SectionBorder

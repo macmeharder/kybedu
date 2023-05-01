@@ -24,7 +24,7 @@ function Form() {
       <div className="flex flex-col gap-4">
         <p className="text-center text-sm">
           Мы отправили код на номер{" "}
-          <span className="whitespace-nowrap text-main-purple">
+          <span className="whitespace-nowrap text-ce-purple">
             +7 701 123 1234
           </span>
           <br />
@@ -41,7 +41,7 @@ function Bottom() {
   return (
     <p className="w-full text-center text-sm mb-safe">
       Не получили sms?{" "}
-      <Link to={routes.login} className="text-main-purple">
+      <Link to={routes.login} className="text-ce-purple">
         Отправить код повторно
       </Link>
       .

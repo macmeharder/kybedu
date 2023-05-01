@@ -54,8 +54,8 @@ export function SectionTestPage() {
                 <label
                   htmlFor={`${questionId}-${answerId}`}
                   className={clsx(
-                    "flex rounded-2xl border-2 border-blue-gray p-2.5 text-center",
-                    "peer-checked:border-main-purple"
+                    "flex rounded-2xl border-2 border-ce-blue-gray p-2.5 text-center",
+                    "peer-checked:border-ce-purple"
                   )}
                 >
                   {text}
