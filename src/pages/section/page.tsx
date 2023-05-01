@@ -10,7 +10,12 @@ export function SectionPage() {
       <Button to={routes.section_lesson} params={{ id }}>
         Лекция
       </Button>
-      <Button color="white" to={routes.section_test} params={{ id }}>
+      <Button
+        color="white"
+        to={routes.section_test}
+        params={{ id }}
+        query={{ testId: 1, questionId: 1 }}
+      >
         Тест
       </Button>
     </div>

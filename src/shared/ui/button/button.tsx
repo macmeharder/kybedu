@@ -7,6 +7,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "default";
   to?: any;
   params?: any;
+  query?: any;
 }
 
 export function Button({
@@ -31,6 +32,7 @@ export function Button({
       <Link
         to={to}
         params={props.params}
+        query={props.query}
         className={clsx(classList, className)}
       >
         {children}

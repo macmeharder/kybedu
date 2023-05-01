@@ -6,11 +6,15 @@ import { changeHeadNavigationEv } from "~/shared/ui/head-navigation/model";
 
 sample({
   clock: routes.section_lesson.opened,
-  fn: function () {
+  fn: function (payload) {
     return {
       left: <BackButton className="flex-1 text-white" />,
       center: <p className="flex flex-[2] justify-center">Лекция</p>,
-      right: <div className="flex-1"></div>,
+      right: (
+        <div className="flex flex-1 justify-end">
+          <img src={`/images/sections/${payload.params.id}.png`} />
+        </div>
+      ),
     };
   },
   target: changeHeadNavigationEv,
