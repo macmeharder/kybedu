@@ -3,12 +3,15 @@ import { useUnit } from "effector-react";
 import { useForm } from "react-hook-form";
 
 import { routes } from "~/shared/routes";
-import { registerSchema } from "~/shared/schemas/shemas";
+import { registerSchema } from "~/shared/schemas";
 import { Button } from "~/shared/ui/button";
 import { Input } from "~/shared/ui/input";
 import { Logotype } from "~/shared/ui/logotype";
 
-import { successFirstRegistrationEv } from "~/pages/register/model";
+import {
+  $registerForm,
+  handleSubmitFirstRegistrationEv,
+} from "~/pages/register/model";
 
 export function RegisterPageOne() {
   return (
@@ -20,7 +23,10 @@ export function RegisterPageOne() {
 }
 
 function Form() {
-  const [successFirstRegistration] = useUnit([successFirstRegistrationEv]);
+  const [handleSubmitFirstRegistration, registerForm] = useUnit([
+    handleSubmitFirstRegistrationEv,
+    $registerForm,
+  ]);
 
   const {
     register,
@@ -32,20 +38,22 @@ function Form() {
     <form
       id="register-form"
       className="flex w-full max-w-md flex-1 flex-col items-center gap-4"
-      onSubmit={handleSubmit(successFirstRegistration)}
+      onSubmit={handleSubmit(handleSubmitFirstRegistration)}
     >
       <div className="flex w-full flex-col gap-4">
         <Input
           label="Имя"
           type="text"
           placeholder="Введите ваше имя"
-          register={register("firstname", registerSchema.firstname)}
+          defaultValue={registerForm?.first_name}
+          register={register("first_name", registerSchema.firstname)}
         />
         <Input
           label="Фамилия"
           type="text"
           placeholder="Введите вашу фамилию"
-          register={register("lastname", registerSchema.lastname)}
+          defaultValue={registerForm?.last_name}
+          register={register("last_name", registerSchema.lastname)}
         />
       </div>
       <Button className="mt-auto" disabled={!isValid}>

@@ -2,14 +2,15 @@ import { emailRegExp, passwordRegExp } from "~/shared/schemas/reg-exp";
 
 export const passwordField = {
   required: "Password is required.",
-  minLength: {
-    value: 8,
-    message: "Min length is 8.",
-  },
   pattern: {
     value: passwordRegExp,
     message: "Wrong password format.",
   },
+};
+
+export const confirmPasswordField = {
+  required: true,
+  pattern: passwordRegExp,
 };
 
 export const firstnameField = {

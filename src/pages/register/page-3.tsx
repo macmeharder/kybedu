@@ -5,7 +5,10 @@ import { routes } from "~/shared/routes";
 import { Logotype } from "~/shared/ui/logotype";
 import { VerificationCode } from "~/shared/ui/verification-code";
 
-import { successThirdRegistrationEv } from "~/pages/register/model";
+import {
+  $registerForm,
+  handleSubmitThirdRegistrationEv,
+} from "~/pages/register/model";
 
 export function RegisterPageThree() {
   return (
@@ -17,21 +20,24 @@ export function RegisterPageThree() {
 }
 
 function Form() {
-  const [successThirdRegistration] = useUnit([successThirdRegistrationEv]);
+  const [handleSubmitThirdRegistration, registerForm] = useUnit([
+    handleSubmitThirdRegistrationEv,
+    $registerForm,
+  ]);
 
   return (
     <div className="flex flex-1 flex-col items-center gap-7">
       <div className="flex flex-col gap-4">
         <p className="text-center text-sm">
-          Мы отправили код на номер{" "}
+          Мы отправили код на почту{" "}
           <span className="whitespace-nowrap text-ce-purple">
-            +7 701 123 1234
+            {registerForm?.email}
           </span>
           <br />
           Введите код для активации аккаунта.
         </p>
       </div>
-      <VerificationCode length={4} onSubmit={successThirdRegistration} />
+      <VerificationCode length={4} onSubmit={handleSubmitThirdRegistration} />
       <Bottom />
     </div>
   );

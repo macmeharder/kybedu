@@ -1,1 +1,1 @@
-export { loginSchema } from "~/shared/schemas/shemas";
+export { loginSchema, registerSchema } from "~/shared/schemas/shemas";

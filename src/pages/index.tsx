@@ -1,8 +1,13 @@
 import { createRoutesView } from "atomic-router-react";
-import { useGate } from "effector-react";
+import { useGate, useUnit } from "effector-react";
 import { ReactNode } from "react";
 import { Helmet } from "react-helmet";
 
+import {
+  $token,
+  redirectToHomeEv,
+  redirectToLoginEv,
+} from "~/shared/request/model";
 import { routes } from "~/shared/routes";
 import { HeadNavigation } from "~/shared/ui/head-navigation";
 import { Navigation } from "~/shared/ui/navigation";
@@ -32,12 +37,31 @@ import { SectionTestPage } from "~/pages/section-test";
 export function Pages() {
   return (
     <div className="flex h-full flex-col">
-      <RoutesView />
+      <ProtectedView>
+        <ViewerRoutes />
+      </ProtectedView>
+      <ExposeView>
+        <GuestRoutes />
+      </ExposeView>
     </div>
   );
 }
 
-const RoutesView = createRoutesView({
+const GuestRoutes = createRoutesView({
+  routes: [
+    { route: routes.login, view: LoginPage, layout: GuestLayout },
+    { route: routes.register_1, view: RegisterPageOne, layout: GuestLayout },
+    { route: routes.register_2, view: RegisterPageTwo, layout: GuestLayout },
+    { route: routes.register_3, view: RegisterPageThree, layout: GuestLayout },
+    {
+      route: routes.forgot_password,
+      view: ForgotPasswordPage,
+      layout: GuestLayout,
+    },
+  ],
+});
+
+const ViewerRoutes = createRoutesView({
   routes: [
     { route: routes.home, view: HomePage, layout: ViewerLayout },
     { route: routes.section, view: SectionPage, layout: ViewerLayout },
@@ -50,16 +74,6 @@ const RoutesView = createRoutesView({
       route: routes.section_test,
       view: SectionTestPage,
       layout: ViewerLayout,
-    },
-
-    { route: routes.login, view: LoginPage, layout: GuestLayout },
-    { route: routes.register_1, view: RegisterPageOne, layout: GuestLayout },
-    { route: routes.register_2, view: RegisterPageTwo, layout: GuestLayout },
-    { route: routes.register_3, view: RegisterPageThree, layout: GuestLayout },
-    {
-      route: routes.forgot_password,
-      view: ForgotPasswordPage,
-      layout: GuestLayout,
     },
 
     {
@@ -89,8 +103,25 @@ const RoutesView = createRoutesView({
   ],
 });
 
+function ProtectedView({ children }: { children: JSX.Element }) {
+  const token = useUnit($token);
+
+  if (!token) redirectToLoginEv();
+
+  return children;
+}
+
+function ExposeView({ children }: { children: JSX.Element }) {
+  const token = useUnit($token);
+
+  if (token) redirectToHomeEv();
+
+  return children;
+}
+
 function GuestLayout({ children }: { children: ReactNode }) {
   useGate(GuestLayoutGate);
+
   return (
     <>
       <Helmet>
@@ -103,6 +134,7 @@ function GuestLayout({ children }: { children: ReactNode }) {
 }
 function ViewerLayout({ children }: { children: ReactNode }) {
   useGate(ViewerLayoutGate);
+
   return (
     <>
       <Helmet>
@@ -117,6 +149,7 @@ function ViewerLayout({ children }: { children: ReactNode }) {
 
 function ProfileLayout({ children }: { children: ReactNode }) {
   useGate(ProfileLayoutGate);
+
   return (
     <>
       <Helmet>
@@ -151,7 +184,7 @@ export const routesMap = [
   { path: "/register-3", route: routes.register_3 },
   { path: "/forgot-password", route: routes.forgot_password },
 
-  { path: "/home", route: routes.home },
+  { path: "/", route: routes.home },
   { path: "/section/:id", route: routes.section },
   { path: "/section/:id/lesson", route: routes.section_lesson },
   { path: "/section/:id/test", route: routes.section_test },

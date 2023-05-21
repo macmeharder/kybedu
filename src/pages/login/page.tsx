@@ -9,7 +9,7 @@ import { Input } from "~/shared/ui/input";
 import { Logotype } from "~/shared/ui/logotype";
 import { PasswordInput } from "~/shared/ui/password-input";
 
-import { successLoginEv } from "~/pages/login/model";
+import { handleSubmitLoginEv } from "~/pages/login/model";
 
 export function LoginPage() {
   return (
@@ -21,7 +21,7 @@ export function LoginPage() {
 }
 
 function Form() {
-  const [successLogin] = useUnit([successLoginEv]);
+  const [handleSubmitLogin] = useUnit([handleSubmitLoginEv]);
   const {
     register,
     handleSubmit,
@@ -31,7 +31,7 @@ function Form() {
   return (
     <form
       className="flex w-full max-w-md flex-1 flex-col items-center gap-10"
-      onSubmit={handleSubmit(successLogin)}
+      onSubmit={handleSubmit(handleSubmitLogin)}
     >
       <div className="flex w-full flex-col gap-4">
         <Input
@@ -41,8 +41,9 @@ function Form() {
           register={register("email", loginSchema.email)}
         />
         <PasswordInput
-          label="Password"
+          label="Пароль"
           type="password"
+          placeholder="Введите пароль"
           register={register("password", loginSchema.password)}
         />
         <Link to={routes.forgot_password} className="self-end text-ce-purple">

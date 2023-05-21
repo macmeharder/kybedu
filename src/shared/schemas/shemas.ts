@@ -1,4 +1,5 @@
 import {
+  confirmPasswordField,
   emailField,
   firstnameField,
   lastnameField,
@@ -15,4 +16,5 @@ export const registerSchema = {
   lastname: lastnameField,
   email: emailField,
   password: passwordField,
+  confirmPassword: confirmPasswordField,
 };

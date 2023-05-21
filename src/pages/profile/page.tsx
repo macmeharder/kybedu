@@ -1,5 +1,7 @@
 import { Link } from "atomic-router-react";
+import { useUnit } from "effector-react";
 
+import { logoutEv } from "~/shared/request/model";
 import { routes } from "~/shared/routes";
 
 const sections = [
@@ -28,6 +30,8 @@ const sections = [
 ];
 
 export function ProfilePage() {
+  const logout = useUnit(logoutEv);
+
   return (
     <div className="flex h-full flex-col gap-10 pt-safe">
       {sections.map(function (section) {
@@ -55,12 +59,12 @@ export function ProfilePage() {
           </div>
         );
       })}
-      <Link
-        to={routes.login}
+      <button
+        onClick={logout}
         className="mt-auto mb-10 text-center text-lg text-ce-red"
       >
         Выйти
-      </Link>
+      </button>
     </div>
   );
 }

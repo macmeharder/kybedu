@@ -12,7 +12,7 @@ export function Input({ label, className, register, ...props }: Props) {
       <span className="text-sm font-medium text-ce-purple">{label}</span>
       <input
         className={clsx(
-          "w-full border-none disabled:text-ce-blue-gray",
+          "w-full border-none",
           "bg-ce-gray",
           "rounded-lg px-3 py-2.5",
           className

@@ -1,17 +1,27 @@
-import { redirect } from "atomic-router";
 import { createEvent, sample } from "effector";
 
+import { loginMutation } from "~/api/auth/login";
+
+import { setTokenEv } from "~/shared/request/model";
 import { routes } from "~/shared/routes";
 import {
   changeHeadNavigationEv,
   initialHeadNavigation,
 } from "~/shared/ui/head-navigation/model";
 
-export const successLoginEv = createEvent();
+export const handleSubmitLoginEv = createEvent<any>();
 
-redirect({
-  clock: successLoginEv,
-  route: routes.home,
+sample({
+  clock: handleSubmitLoginEv,
+  target: loginMutation.start,
+});
+
+sample({
+  clock: loginMutation.finished.success,
+  fn: function ({ result }: { result: { token: string } }) {
+    return result.token;
+  },
+  target: [routes.home.open, setTokenEv],
 });
 
 sample({

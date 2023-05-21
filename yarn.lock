@@ -1206,6 +1206,16 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.36.0.tgz#9837f768c03a1e4a30bd304a64fb8844f0e72efe"
   integrity sha512-lxJ9R5ygVm8ZWgYdUweoq5ownDlJ4upvoWmO4eLxBYHdMo+vZ/Rx0EN6MbKWDJOSUGrqJy2Gt+Dyv/VKml0fjg==
 
+"@farfetched/core@^0.8.11":
+  version "0.8.11"
+  resolved "https://registry.yarnpkg.com/@farfetched/core/-/core-0.8.11.tgz#661115409db9c8d8c89b90f5bfb97cce273b04b6"
+  integrity sha512-aFXorJu9X3bUNVHxBRKJvk76FyokkgAJjnejsyNSaRjCtHGWRyAwrYyhCl0vwlE23DUpew6BXMJwtrg0NKt0bw==
+
+"@farfetched/react@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@farfetched/react/-/react-0.5.1.tgz#b4439ce070f69e78754c444f13b5b449ab594f2a"
+  integrity sha512-OeeCxttQzJSQ5CdWVvR5rt5qYFbl0eHbbX9lna0rti4aYrRsqpmEn/UVFE6XUMoQ9FnTdxauqDizzMAeTpQYrw==
+
 "@feature-sliced/eslint-config@^0.1.0-beta.6":
   version "0.1.0-beta.6"
   resolved "https://registry.yarnpkg.com/@feature-sliced/eslint-config/-/eslint-config-0.1.0-beta.6.tgz#ba818d630449c97b802c0e5dda874f12b6b51cf2"
@@ -2154,6 +2164,11 @@ effector-react@^22.5.1:
   integrity sha512-Sy5b/sUEZoCuyoCr+SiHcgd0L+PQqnIGx+SuPCZ7MhECYxezkkeecsk0EVj9sykLL2qlEeg+rdiWvIATJgOTeA==
   dependencies:
     use-sync-external-store "^1.0.0"
+
+effector-storage@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/effector-storage/-/effector-storage-5.0.1.tgz#c5cbaffafd068852ae1105e406e230df2500bd62"
+  integrity sha512-XJQTLEKUoO8vZROyxtY1J6SfK5Z0YdDGcwEYjhQNOiMtE6HcdJ9cagiCK2r0unsq8eEIS2GzB8cWPrIWJRepxA==
 
 effector@^22.7.0:
   version "22.7.0"

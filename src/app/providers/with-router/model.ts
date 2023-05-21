@@ -3,9 +3,9 @@ import { sample } from "effector";
 import { createBrowserHistory } from "history";
 
 import { routes } from "~/shared/routes";
+import { controls } from "~/shared/routes/routes";
 
 import { routesMap } from "~/pages";
-import { controls } from "~/shared/routes/routes";
 
 export const router = createHistoryRouter({
   routes: routesMap,
@@ -16,14 +16,7 @@ const history = createBrowserHistory();
 
 sample({
   clock: router.routeNotFound,
-  fn: function () {
-    console.log("asd");
-  },
-  target: routes.login.open.prepend(() => {}),
-});
-
-router.initialized.watch(function (payload) {
-  console.log(payload);
+  target: routes.home.open,
 });
 
 router.setHistory(history);
