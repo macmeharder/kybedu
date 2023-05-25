@@ -187,7 +187,7 @@ export const routesMap = [
   { path: "/", route: routes.home },
   { path: "/section/:id", route: routes.section },
   { path: "/section/:id/lesson", route: routes.section_lesson },
-  { path: "/section/:id/test", route: routes.section_test },
+  { path: "/section/:id/answer", route: routes.section_test },
 
   { path: "/profile", route: routes.profile },
   { path: "/profile/settings", route: routes.profile_settings },

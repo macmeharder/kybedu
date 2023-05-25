@@ -131,7 +131,3 @@ sample({
   },
   target: [routes.home.open],
 });
-
-$registerForm.watch(function (state) {
-  console.log(state);
-});
